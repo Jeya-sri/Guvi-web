@@ -1,0 +1,40 @@
+.topnav-right {
+    float: right;
+    margin-right: 5vw;
+}
+
+.custbtn {
+    border-radius: 18px;
+    margin: 7px;
+}
+
+.headx {
+    background-color: #64DD17;
+    border-radius: 10px;
+}
+
+.cardx {
+    border-radius: 10px;
+}
+
+.custdiv {
+    margin-top: 30vh;
+    margin-bottom: 20vh;
+}
+
+label {
+    margin-left: 20px;
+}
+
+#datepicker {
+    width: 180px;
+    margin: 0 20px 20px 20px;
+}
+
+#datepicker>span:hover {
+    cursor: pointer;
+}
+
+#Gender {
+    margin-left: 3vw;
+}
