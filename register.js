@@ -1,5 +1,7 @@
 $('document').ready(function() {
-    $("#regform").validate({
+    console.log('validate');
+    $("form[name='reg-form']").validate({
+
         rules: {
             name: {
                 required: true,
@@ -12,7 +14,7 @@ $('document').ready(function() {
             },
             repass: {
                 required: true,
-                equalTo: '#inputPassword'
+                equalTo: '#pass'
             },
             email: {
                 required: true,
@@ -52,6 +54,7 @@ $('document').ready(function() {
     });
     /* handle form submit */
     function submitForm() {
+        console.log('submitted');
         var data = $("#regform").serialize();
         console.log(data);
         $.ajax({
@@ -60,26 +63,23 @@ $('document').ready(function() {
             data: data,
             beforeSend: function() {
                 $("#error").fadeOut();
-                $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span>   creating ...');
+                $("#btn-submit").html(' Creating ...');
             },
             success: function(response) {
                 if (response == 1) {
                     $("#error").fadeIn(1000, function() {
-                        $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>   Sorry email already taken !</div>');
+                        $("#error").html('<div class="alert alert-danger">  Sorry email already taken !</div>');
                         $("#btn-submit").html('Register');
                     });
                 } else {
-                    $("#btn-submit").html('<img src="images/ajax-loader.gif" />   Signing Up ...');
-                    setTimeout('window.location.href = "index.html" ', 2000);
+                    $("#btn-submit").html('<img src="img/loader.gif" />   Signing Up ...');
+                    console.log('Done Register');
+                    setTimeout('window.location.href = "inde.html" ', 2000);
                 }
             }
         });
         return false;
     }
-});
-
-$.validate({
-    modules: 'date'
 });
 
 
