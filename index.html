@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
     <title>Guvi - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 
 </head>
@@ -22,15 +22,171 @@
             <button type="button" id="logme" class="custbtn btn btn-success shadow-sm">Login</button>
         </div>
     </nav>
-    <div class="container" id="conme"></div>
+    <div class="container" id="conme">
+        <!-- Login Form -->
+        <div class="row custdiv" id="divformLogin">
+            <div class="col-md-12  d-inline-block d-flex justify-content-sm-center flex-column">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto my-auto">
+                        <!-- form card login -->
+                        <div class="card shadow shadow-sm cardx">
+                            <div class="card-header cardx headx">
+                                <h3 class="mb-0 ">Login</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" id="formLogin" method="POST">
+                                    <div class="form-group">
+                                        <label for="logemail">Email </label>
+                                        <input type="text" class="form-control" name="logemail" id="logemail">
+                                        <div class="invalid-feedback">Oops, Email is required.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="logpass">Password</label>
+                                        <input type="password" name="logpass" class="form-control" id="logpass">
+                                        <div class="invalid-feedback">Enter your password too!</div>
+                                    </div>
+
+                                    <button class="btn btn-success btn-md float-right custbtn" id="btnLogin">Login</button>
+                                </form>
+                            </div>
+                            <!--/card-block-->
+                        </div>
+                        <!-- /form card login -->
+
+                    </div>
+
+
+                </div>
+                <!--/row-->
+
+            </div>
+            <!--/col-->
+            <div id="error"></div>
+
+        </div>
+        <!--/row-->
+
+
+        <!-- Register Form  -->
+        <div class="row justify-content-center custdiv" id="divformReg">
+            <div class="col-md-8">
+                <div class="card cardx shadow shadow-sm">
+                    <div class="card-header headx ">
+                        <h3>Register</h3>
+                    </div>
+                    <div class="card-body">
+                        <form name="regform" id="formReg" method="POST">
+
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">    Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="name" class="form-control" name="name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="email" class="form-control" name="email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="phone" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="phone" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Dob -->
+                            <div class="form-group row">
+                                <label for="dob" class="col-md-4 col-form-label text-md-right ">Date of Birth </label>
+                                <div class="date col-md-6" data-date-format="mm-dd-yyyy">
+                                    <input type="text" class="form-control" id="dob" name="dob" placeholder="yyyy-mm-dd" value="" onblur="getAge();" data-validation="birthdate" data-validation-help="yyyy-mm-dd">
+                                </div>
+                            </div>
+                            <!-- Age Auto -->
+                            <div class="form-group row">
+                                <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="age" class="form-control" readonly>
+                                </div>
+                            </div>
+                            <!-- Gender -->
+                            <div class="form-group row">
+                                <label for="Gender" class="col-md-4 col-form-label text-md-right ">Gender </label>
+                                <div class="form-check" name="Gender" id="gender">
+                                    <input class="form-check-input" type="radio" name="r1" id="r1" value="Male">
+                                    <label class="form-check-label" for="r1">
+                                  Male
+                                </label>
+                                </div>
+                                <div class="form-check" name="Gender" id="Gender">
+                                    <input class="form-check-input" type="radio" name="r1" id="r2" value="Female">
+                                    <label class="form-check-label" for="r1">
+                                  Female
+                                </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="college" class="col-md-4 col-form-label text-md-right">College</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="college" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="dept" class="col-md-4 col-form-label text-md-right">Department & Branch</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="dept" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ai" class="col-md-4 col-form-label text-md-right">Area Of Interest</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="ai" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group row">
+                                <label for="pass" class="col-md-4 col-form-label text-md-right">Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" id="pass" class="form-control" name="pass">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="repass" class="col-md-4 col-form-label text-md-right">Re-Enter Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" id="repass" class="form-control" name="repass">
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-success btn-md float-right custbtn" id="btn-submit">
+                                                Register
+                                </button>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="error"></div>
+    </div>
+
+
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="validation.min.js"></script>
-    <script src="script.js"></script>
-    <script src="register.js"></script>
+    <script type="text/javascript" src="js/validation.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
 </body>
 
 </html>
